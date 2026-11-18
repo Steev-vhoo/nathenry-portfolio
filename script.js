@@ -22,7 +22,7 @@ menu.querySelectorAll('a').forEach((a) =>
 );
 
 const links = [...menu.querySelectorAll('a[href^="#"]:not(.btn)')];
-const sections = links.map((l) => document.querySelector(l.getAttribute('href'))).filter(Boolean);
+const sections = [document.getElementById('home'), ...links.map((l) => document.querySelector(l.getAttribute('href')))].filter(Boolean);
 const spy = new IntersectionObserver(
   (entries) => {
     entries.forEach((e) => {
